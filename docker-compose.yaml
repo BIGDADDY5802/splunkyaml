@@ -1,0 +1,15 @@
+version: "3.6"
+services:
+  splunk:
+    image: splunk/splunk:latest
+    hostname: splunk-standalone
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=Super_man_compose
+    ports:
+      - "8000:8000"
+      - "8089:8089"
+    volumes:
+      - splunk_data:/opt/splunk/var
+volumes:
+  splunk_data:
